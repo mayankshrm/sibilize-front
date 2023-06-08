@@ -15,15 +15,11 @@ const Footer = () => {
                 </a>
             </div>
             <div className='footer-links-item'>
-                <a href='/Team'>
+                <a href='/ourteam'>
                     <p>Team</p>
                 </a>
             </div>
-            <div className='footer-links-item'>
-                <a href='/tc'>
-                    <p>T&C</p>
-                </a>
-            </div>
+            
             <div className='footer-links-item'>
                 <a href='/contactus'>
                     <p>Contact Us</p>
@@ -31,11 +27,16 @@ const Footer = () => {
             </div>
             <div className='footer-links-item'>
                 <div className="social-media">
-                    <div className="social-media-items click_me">
-                    <i className="fa-brands fa-facebook"></i></div>
-                    <div className="social-media-items click_me"> <i className="fa-brands fa-linkedin"></i></div>
+                    <a  href='https://www.linkedin.com/company/sibilize/' target='alt'>
+                    <div className="social-media-items click_me" > 
+                    <i className="fa-brands fa-linkedin" ></i></div>
+
+                    </a>
+                    <a href='https://www.instagram.com/sibilize/' target='alt'>
+
                     <div className="social-media-items click_me"> <i className="fa-brands fa-instagram"></i></div>
-                    <div className="social-media-items click_me"><i className="fa-brands fa-twitter "></i></div>
+                    </a>
+                    
                 </div>
             </div>
             

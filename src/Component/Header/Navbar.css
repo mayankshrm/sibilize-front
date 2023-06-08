@@ -108,12 +108,7 @@ cursor:  pointer;
     font-weight: bold;
     margin-left: 12px;
 }
-@media screen and (max-width: 780px){
-   .navbar{
-        height: 140px;
-    }
 
-}
 .choose_property{
     position: relative;
 }

@@ -7,17 +7,18 @@ import ScheduleModal from "./ScheduleModal";
 
 export default function Card(props) {
 
-  
   return (
     <>
+  
       <div className="CardContainer" >
         <img
-          src={'data:image/jpeg;base64,'+props.img}
+          src={props.img}
           alt=""
           className="CardImg"
           onClick={()=>window.location=`/pg/${props.key1}`}
         />
-       
+
+          
         <div className="CardDis">
           <div className="title" onClick={()=>window.location=`/pg/${props.key1}`}>
             <h1 className="mb-0">{props.title}</h1>
@@ -27,19 +28,23 @@ export default function Card(props) {
             <span>details</span>
           </div>
           <div className="amenities">
-           {props.Amenities.map((obj)=>{
-            return <span>{obj}</span>
+           {props.Amenities?.split(',').map((obj,i)=>{
+            return <span>{props.Amenities?.split(',')[i]}</span>
            })}
           </div>
           <div>
             <a href="/s">view directions</a>
           </div>
+          <h1 style={{color:"red"}}>
+            {props.booked}
+          </h1>
+        
         </div>
 
         <div className="CardPrice">
           <div className="price-section">
             <div>
-              <span style={{ color: "lightgray", fontSize: "15px" }}>
+              <span style={{ color: "gray", fontSize: "15px" }}>
                 starts from
               </span>
               <br></br>
@@ -50,11 +55,11 @@ export default function Card(props) {
                   fontSize: "30px",
                 }}
               >
-                {props.price}
+                Rs. {props.price}
               </span>
             </div>
             <div>
-            <i className="fa-regular fa-bookmark"></i></div>
+           </div>
           </div>
           <div>
             <ScheduleModal title={props.title} />

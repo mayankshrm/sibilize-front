@@ -9,9 +9,9 @@ const Container = () => {
         style={{ padding: "2rem", height: "25%", backgroundColor: "black" }}
       >
         <div className="path-container">
-          <h2 style={{ fontSize: "12px", color: "white" }}>
+          <h2 style={{ fontSize: "12px", color: "white" }} >
             {" "}
-            SIBILIZE / About Us{" "}
+        <a href="/">Home</a>
           </h2>
         </div>
         <div
@@ -47,10 +47,7 @@ const Container = () => {
             <span style={{ color: "skyblue" }}>we created it for you</span>{" "}
           </h2>
           <p className="infop" style={{ fontSize: "1.5rem" }}>
-            That's essentially our story in one sentence. Crammed up hostels or
-            cooped up PGs - not much of a choice, is it? Thats why we created
-            Stanza Living - a place designed by people who've been in your
-            shoes. Understand you. And are inspired by you.
+          Sibilize offers the best accommodations to students who were denied admission to college-provided hostels due to high fees and low occupancy, and provides them with the hostel life that they have missed in local off-campus accommodations.
           </p>
         </div>
         <div>
@@ -97,10 +94,7 @@ const Container = () => {
             <span style={{ color: "skyblue" }}>moved back home</span>
           </h2>
           <p className="infop" style={{ fontSize: "1.5rem" }}>
-            That's essentially our story in one sentence. Crammed up hostels or
-            cooped up PGs - not much of a choice, is it? Thats why we created
-            Stanza Living - a place designed by people who've been in your
-            shoes. Understand you. And are inspired by you.
+          Sibilize provides the best accommodations tailored to the needs of working professionals and institute students.
           </p>
           <hr/>
         </div>
@@ -131,9 +125,7 @@ const Container = () => {
             <span style={{ color: "skyblue" }}> "hostel-PG food"</span>{" "}
           </h2>
           <p className="infop" style={{ fontSize: "1.5rem" }}>
-            Instead, bring along a big appetite for healthy, yummy meals. With
-            flavours that have a local touch. And that, at the same time, take
-            your taste buds on a journey back home.
+          Sibilize accommodations include all amenities, as well as a professional and a team of highly trained staff to assist.
           </p>
         </div>
         <div>
@@ -189,10 +181,7 @@ const Container = () => {
             that's anything but common
           </h2>
           <p className="infop" style={{ fontSize: "1.5rem" }}>
-            Nope, we don't try to pass off a few plastic chairs and a TV as a
-            common area. We've replaced them with sofas, bean bags and
-            large-screen TVs. And we've also added gaming zones, fitness centres
-            and chillout corners as a bonus.
+          Sibilize aims to empower youth throughout the growth of their life, from their teen to adult phase
           </p>
         </div>
       </div>

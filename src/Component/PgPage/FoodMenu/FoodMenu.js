@@ -3,27 +3,27 @@ import { Data } from "./Food";
 import { useState } from "react";
 import "./FoodMenu.css";
 
-const FoodMenu = () => {
+const FoodMenu = (props) => {
   const [item, setItem] = useState(Data);
-
+   
+   const default_food=[];
     useEffect(()=>{
-      const updateitem = Data.filter((u) => {
-        return u.category === "day1";
-      });
-      setItem(updateitem);
+
+      setItem(default_food);
     },[])
 
   const day1 = (cat) => {
-    const updateitem = Data.filter((u) => {
+    const updateitem = props.food?.filter((u) => {
       return u.category === cat;
     });
     setItem(updateitem);
+    console.log(item);
   };
 
   const day2 = (cat) => {
     const updateitem = Data.filter((u) => {
       return u.category === cat;
-    });
+    }); 
     setItem(updateitem);
   };
 
@@ -94,7 +94,7 @@ const FoodMenu = () => {
               <h6>BREAKFAST</h6>
             </div>
             {item
-              .filter((u) => u.time.includes("breakfast"))
+              .filter((u) => u.type.includes("breakfast"))
               .map((a) => {
                 return (
                   <div>
@@ -110,28 +110,19 @@ const FoodMenu = () => {
               <h6>LUNCH</h6>
             </div>
             {item
-              .filter((u) => u.time.includes("lunch"))
+              .filter((u) => u.type.includes("lunch"))
               .map((a) => {
                 return <div style={{textAlign:"center",borderBottom:"1px solid grey"}}>{a.name}</div>;
               })}
           </div>
         </div>
-        <div className="Snacks">
-          <div style={{ background:"black",color:"white",padding:"0.1rem",borderRadius:"0.2rem",textDecoration:"underline",marginBottom:"0.5rem" }}>
-            <h6>SNACKS</h6>
-          </div>
-          {item
-            .filter((u) => u.time.includes("snacks"))
-            .map((a) => {
-              return <div style={{textAlign:"center",borderBottom:"1px solid grey"}}>{a.name}</div>;
-            })}
-        </div>
+       
         <div className="Dinner">
           <div style={{ background:"black",color:"white",padding:"0.1rem",borderRadius:"0.2rem",textDecoration:"underline" ,marginBottom:"0.5rem"}}>
             <h6>DINNER</h6>
           </div>
           {item
-            .filter((u) => u.time.includes("dinner"))
+            .filter((u) => u.type.includes("dinner"))
             .map((a) => {
               return <div style={{textAlign:"center",borderBottom:"1px solid grey"}}>{a.name}</div>;
             })}

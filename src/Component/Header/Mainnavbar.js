@@ -1,54 +1,49 @@
 import React  from 'react'
 import './Mainnavbar.css'
 import { useNavigate } from "react-router-dom";
+import { useState } from 'react';
+import DropDown from '../UI/DropDown/DropDown';
+import PopOver from '../UI/Popover/PopOver';
 const Mainnavbar = () => {
   // const[isMobile, setIsMobile]= useState(false);
   const navigate = useNavigate(""); 
   const gotohome =()=>{
     navigate('/');
   }
+
+
   return (
     
     <>
  <nav className="navbar navbar-expand-lg navbar-light bg-light mr-auto">
- <img src="/sibilize_logo.png" alt="siblize-logo"
-      className="header-logo" onClick={gotohome} style={{marginLeft:"3rem"}}/>
-     {
-      <div className="icons " style={{display:"flex",marginLeft:"10rem", justifyContent:"space-between", width:"17vw" , alignItems:"center"}}>
-        <div className="glass hidden_icons" style={{background:"black", color:"white" ,width:"3rem" , height:"3rem",justifyContent:"center",borderRadius:"50%",paddingLeft:"1rem" , paddingTop:".8rem",cursor:"pointer"}}>
-        <i class="fa-solid fa-magnifying-glass"></i>
-        </div>
-      <div className="phone_icon hidden_icons" style={{background:"black", color:"white" ,width:"3rem" , height:"3rem",justifyContent:"center",borderRadius:"50%",paddingLeft:"1rem" , paddingTop:".8rem",cursor:"pointer"}}>
-      <i class="fa-solid fa-phone"></i>
-      </div>
-      
-      </div>
-      
-     }
+ <img src="/logo.png" alt="siblize-logo"
+      className="header-logo" onClick={gotohome} style={{height:"8rem",margin:"0px"}}/>
+    
+     
   
      
-  <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-tar  get="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span className="navbar-toggler-icon"></span>
   </button>
 
-  <div className="collapse navbar-collapse mx-5" id="navbarSupportedContent" >
+  <div className="collapse navbar-collapse " id="navbarSupportedContent" >
     
-    <ul className="navbar-nav ms-auto">
+    <ul className="navbar-nav ">
       <li className="nav-item active mx-3">
-        <a className="nav-link" href="/">Home <span className="sr-only">(current)</span></a>
+        <a className="nav-link" href="/" style={{fontSize:"1rem"}}>Home <span className="sr-only">(current)</span></a>
       </li>
       <li className="nav-item active mx-3">
-        <a className="nav-link " href="/About">About</a>
+        <a className="nav-link " href="/About"  style={{fontSize:"1rem"}}>About</a>
       </li>
       <li className="nav-item active mx-3">
-      <a className='nav-link' href='#'>Add property</a>
-      </li>
-      <li className="nav-item active mx-3">
-      <a className='nav-link' href="#">Support</a>
+      <a className='nav-link' href='#'  style={{fontSize:"1rem"}}>Add property</a>
       </li>
     
-    <li className="nav-item active mx-4">
-      <a className='nav-link' href="#">Contact</a>
+      <li className="nav-item active mx-3">
+      <a className='nav-link' href="/ourteam"  style={{fontSize:"1rem"}}>Team</a>
+      </li>
+      <li className="nav-item active mx-4">
+      <PopOver/>
       </li>
     </ul>
   </div>

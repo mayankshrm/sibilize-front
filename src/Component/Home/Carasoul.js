@@ -11,21 +11,21 @@ const Carasoul = () => {
   </div>
   <div className="carousel-inner" style={{height: "31rem"}}>
     <div className="carousel-item active">
-    <img src="/building.png" className="d-block w-100" alt="..." style={{ height: "31rem"}}/>
+    <img src="/Crousel_img1.jpg" className="d-block w-100" alt="..." style={{ height: "31rem",filter:"brightness(70%)"}}/>
       <div className="carousel-caption d-none d-md-block">
         <h5 style={{fontSize:" 3.25rem"}}>Come, live the new kind of Living.</h5>
         <p style={{ fontSize: " x-large" }}>Life at a professionally managed accommodation awaits you.</p>
       </div>
     </div>
     <div className="carousel-item">
-      <img src="meal.png" className="d-block w-100" alt="..." style={{ height: "31rem"}}/>
+      <img src="/Crousel_img2.jpg" className="d-block w-100" alt="..." style={{ height: "31rem",filter:"brightness(70%)"}}/>
       <div className="carousel-caption d-none d-md-block">
         <h5 style={{fontSize:" 3.25rem"}}>Homely meals that make you miss home a little less.</h5>
         <p style={{ fontSize: " x-large" }}>Prepared by expert chefs who serve nothing less than yum.</p>
       </div>
     </div>
     <div className="carousel-item">
-      <img src="pool.png" className="d-block w-100" alt="..." style={{ height: "31rem"}}/>
+      <img src="/Crousel_img3.jpg" className="d-block w-100" alt="..." style={{ height: "31rem",filter:"brightness(70%)"}}/>
       <div className="carousel-caption d-none d-md-block">
         <h5 style={{fontSize:" 3.25rem"}}>Facilities that give local PGs an inferiority complex</h5>
         <p style={{ fontSize: " x-large" }}>Get daily housekeeping, laundry and more at your service.</p>
@@ -43,57 +43,15 @@ const Carasoul = () => {
 </div>
 
 <div className='info' style={{ width: "100vw", maxWidth:"100%"}}>
-    <div className='info-container' style={{display:"flex", paddingTop:"3.1em" , justifyContent:"space-evenly"}}>
-        <div className='coll' style={{display: "flex",
-    flexDirection: "column", 
    
-    background:" rgb(255, 255, 255)",
-    border: "1px solid rgb(239, 239, 239)",
-    borderRadius: "1.9em",
-    padding: "3.8em 2em 3.2em",
-    flex: " 0 0 19em",
-    width:" 9em"}}>
-   <div className='siblize-num' style={{display:"flex", flexDirection:"column", justifyContent:"flex-start",alignItems:"center"}}>
-    <div style={{height: "36px", width:"36px"}} ><i className="far fa-city"></i></div>
-    <span style={{fontSize:" -webkit-xxx-large"}}>"24+" Cities</span>
-   </div>
-        </div>
-
-        <div className='coll' style={{display: "flex",
-    flexDirection: "column", 
-   
-    background:" rgb(255, 255, 255)",
-    border: "1px solid rgb(239, 239, 239)",
-    borderRadius: "1.9em",
-    padding: "3.8em 2em 3.2em",
-    flex: " 0 0 19em",
-    width:" 9em"}}>
-   <div className='siblize-num' style={{display:"flex", flexDirection:"column", justifyContent:"flex-start" ,alignItems:"center"}}>
-    <div  ><i class="fas fa-house" style={{height: "36px", width:"36px"}}></i></div>
-    <span style={{fontSize:" -webkit-xxx-large"}}>"450+ Residences"</span>
-   </div>
-        </div>
-
-        <div className='coll' style={{display: "flex",
-    flexDirection: "column", 
-   
-    background:" rgb(255, 255, 255)",
-    border: "1px solid rgb(239, 239, 239)",
-    borderRadius: "1.9em",
-    padding: "3.8em 2em 3.2em",
-    flex: " 0 0 19em",
-    width:" 9em"}}>
-   <div className='siblize-num' style={{display:"flex", flexDirection:"column", justifyContent:"flex-start",alignItems:"center"}}>
-    <div style={{height: "36px", width:"36px"}} ><i className="fas fa-bed-alt"></i></div>
-    <span style={{fontSize:" -webkit-xxx-large"}}>"1000+ Beds"</span>
-   </div>
-        </div>
-    </div>
 
 </div>
-    <div className="text-wrap" style={{height:"maxContent", width:"100%" , backgroundColor: "azure" ,padding: "44px" , textAlign:"center"}}>
-        <h2 style={{fontWeight:"bold"}}>Not just four walls and a roof</h2>
+    <div className="text-wrap" style={{height:"maxContent", width:"100%" , backgroundColor:"#E0FFFF" ,padding: "44px" , textAlign:"center",height:"40vh",display:"flex",justifyContent:"center",alignItems:"center"}}>
+    <div>
+        <h2 style={{fontWeight:"bold"}}>Empowering the Youth</h2>
         <p>Come over and experience how a place to stay can be so much more</p>
+
+    </div>
 
     </div>
     </>

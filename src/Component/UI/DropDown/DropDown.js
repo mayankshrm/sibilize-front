@@ -8,9 +8,9 @@ function DropDown() {
       </Dropdown.Toggle>
 
       <Dropdown.Menu>
-        <Dropdown.Item href="#/action-1">About</Dropdown.Item>
-        <Dropdown.Item href="#/action-2">Team</Dropdown.Item>
-        <Dropdown.Item href="#/action-3">Contact US</Dropdown.Item>
+        <Dropdown.Item href="/about">About</Dropdown.Item>
+        <Dropdown.Item href="/ourteam">Team</Dropdown.Item>
+        
       </Dropdown.Menu>
     </Dropdown>
   );

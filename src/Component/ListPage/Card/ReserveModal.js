@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
-import DatePicker from "react-datepicker";
+import axios from "axios";
+
 
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -15,14 +16,35 @@ function ReserveModal() {
     FullName: "",
     Phone: "",
     Radio: "",
-    Date: new Date(),
     Email: "",
   });
 
   const handleSubmit = () => {
     console.log(FormData);
+  
+    const data={
+      FullName:FormData.FullName,
+        Phone:FormData.Phone,
+        Radio:FormData.Radio,
+        Email:FormData.Email
+    }
    setShow(false)
+
+   axios.post("http://localhost:1234/pg/reserveform",data)
+   .then((result)=>{
+    console.log(result);
+  }).catch((err)=>{
+  
+    console.log(err);
+  })
     
+
+  setFormData({
+    FullName:"",
+    Phone:"",
+    Radio:"",
+    Email:""
+  })
   };
 
   
@@ -38,6 +60,20 @@ function ReserveModal() {
           <Modal.Title>Reserve now</Modal.Title>
         </Modal.Header>
         <Modal.Body>
+        <div style={{border:"1px dotted black"}}>
+          <ul>
+            <li style={{fontSize:"small"}}>
+            If you like a residence or apartment, make an initial payment of just <span style={{color:"red"}}>₹1,000/-</span> to reserve a bed
+            </li>
+            <li style={{fontSize:"small"}}>
+              Our team will shortly connect with you for the further procedure.
+            </li>
+            <li style={{fontSize:"small"}}>
+            But if you change your mind anytime, you can get your money back (no questions asked)
+            </li>
+
+          </ul>
+        </div>
           <Form>
             <Form.Group className="mb-3" controlId="Input1">
               <Form.Label>Full Name</Form.Label>
@@ -85,12 +121,7 @@ function ReserveModal() {
                 }
               />
             </Form.Group>
-            <div className="mb-3">
-              <h6>Visit Date</h6>
-              <DatePicker selected={FormData.Date} onChange={(date) => setFormData({...FormData,Date:date})}  />
-              
-            </div>
-
+            
             <Form.Group className="mb-3" controlId="Input3">
               <Form.Label>Email</Form.Label>
               <Form.Control

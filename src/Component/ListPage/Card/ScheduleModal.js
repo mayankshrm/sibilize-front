@@ -3,7 +3,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
 import DatePicker from "react-datepicker";
-
+import axios from "axios";
 import "react-datepicker/dist/react-datepicker.css";
 
 function ScheduleModal(props) {
@@ -17,12 +17,39 @@ function ScheduleModal(props) {
     Radio: "",
     Date: new Date(),
     Email: "",
+    Radio1:"",
   });
 
   const handleSubmit = () => {
     console.log(FormData);
+
+    const data={
+      FullName:FormData.FullName,
+        Phone:FormData.Phone,
+        Radio:FormData.Radio,
+        Date1:FormData.Date,
+        Email:FormData.Email,
+        pg:props.title,
+        Radio1:FormData.Radio1,
+    }
+    console.log(data);
    setShow(false)
-    
+   axios.post("http://localhost:1234/pg/scheduleform",data)
+   .then((result)=>{
+    console.log(result);
+  }).catch((err)=>{
+  
+    console.log(err);
+  })
+
+  setFormData({
+    FullName: "",
+    Phone: "",
+    Radio: "",
+    Date: new Date(),
+    Email: "",
+    Radio1:""
+  })
   };
 
   
@@ -85,9 +112,35 @@ function ScheduleModal(props) {
                 }
               />
             </Form.Group>
+            <Form.Group className="mb-3" controlId="radioInput">
+              
+              <Form.Check
+                inline
+                label="Virtual Meeting"
+                name="group2"
+                type="radio"
+                id="inline-radio-1"
+                value="virtual"
+                onChange={(e) =>
+                  setFormData({ ...FormData, Radio1: e.target.value })
+                }
+              />
+              <Form.Check
+                inline
+                label="Offline Meeting"
+                name="group2"
+                type="radio"
+                value="offline"
+                id="inline-radio-2"
+                onChange={(e) =>
+                  setFormData({ ...FormData, Radio1: e.target.value })
+                }
+              />
+            </Form.Group>
+            
             <div className="mb-3">
               <h6>Visit Date</h6>
-              <DatePicker selected={FormData.Date} onChange={(date) => setFormData({...FormData,Date:date})}  />
+              <DatePicker  selected={FormData.Date} onChange={(date) => setFormData({...FormData,Date:date})}  />
               
             </div>
 

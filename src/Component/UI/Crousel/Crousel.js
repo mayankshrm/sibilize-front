@@ -1,21 +1,21 @@
 import Carousel from 'react-bootstrap/Carousel';
 import "./Crousel.css";
 
-function Crousel() {
+function Crousel(props) {
 
-  const arr=[1,2,3,5,6,7];
+  
   return (
     
     
     <Carousel>
     {
-      arr.map(()=>{
+      props.img?.map((e,i)=>{
         return (
           
           <Carousel.Item>
         <img
           className="d-block w-100 img"
-          src="https://ichef.bbci.co.uk/news/999/cpsprodpb/15951/production/_117310488_16.jpg"
+          src={e}
           alt="First slide"
         />
         

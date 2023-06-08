@@ -1,22 +1,59 @@
-import React, { useState } from "react";
+import React, { useState ,useEffect } from "react";
 import {useNavigate } from "react-router-dom";
 import "./Home.css"
-
+import axios from "axios";
 const Boxes = () => {
 const navigate= useNavigate();
+
+
   const [searchPg ,setSearchpg]=useState("");
-const handleSearch=()=>{
+  const[pgdata,setPgData]=useState([]);
+const handleSearch=(searchTerm)=>{
+  if(searchTerm==""){
+    alert("enter value");
+  }else{
 navigate("/pg" ,{state:{searchPg}})
 }
- 
+}
+useEffect(()=>{
+  apiData();
+  },[])
+  
+const apiData =()=>{
+  axios.get("http://localhost:1234/pg").then(res=>{
+setPgData(res.data);
+
+}).catch(error=>{
+  console.log(error);
+})
+}
+
   return (
     <>
+    <div className="search">
 
-    <input type="text" value={searchPg} onChange={(e)=>setSearchpg(e.target.value)
-
-    }/>
     
-    <button onClick={handleSearch}>Search</button>
+    <input type="text" value={searchPg} required={true} onChange={(e)=>setSearchpg(e.target.value)} className="input" placeholder="Enter location"/>
+    <button onClick={()=>handleSearch(searchPg)} className="btn3">Search</button>
+    <div className="ser">
+      
+      {pgdata.filter(item=>{
+        const searchTerm=searchPg.toLowerCase();
+        const location=item.location.toLowerCase();
+
+        return searchTerm && location.includes(searchTerm) && location!==searchTerm;
+      })
+      .map((e)=>(
+        <div  onClick={()=>{
+          setSearchpg(e.location)
+        }}>
+            {e.location}
+
+        </div>
+
+      ))}
+    </div>
+    </div>
     <div style={{display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center"}}>
     <div
         className="box-container"
@@ -34,7 +71,7 @@ navigate("/pg" ,{state:{searchPg}})
              }}
       >
 
-     
+      
         <div
           className="box-img"
           style={{

@@ -15,10 +15,10 @@ import axios from "axios";
 function MainContent() {
 
   const location1 =useLocation();
-   console.log(location1)
+  
 
    const id=(location1.pathname).split("/")[2];
-   console.log(id);
+  
 
    const[singlePg,setSinglePg]=useState([]);
 
@@ -49,7 +49,9 @@ function MainContent() {
             <div style={{ flex: "2", marginTop: "30px" }}>
             <div style={{display:"flex",justifyContent:"space-between"}}>
               <h1>{singlePg.title}</h1>
-              <Photo/>
+              <Photo
+                img={singlePg.img_array}
+              />
 
             </div>
               <p>{singlePg.location}</p>
@@ -70,16 +72,20 @@ function MainContent() {
                 top: "0",
               }}
             className="Crousel1">
-              <Crousel />
+              <Crousel
+              img={singlePg.img_array} />
             </div>
           </div>
         </div>
         </div>
-        <SmoothScroll/>
+        <SmoothScroll 
+           details={singlePg.details}
+           amenities={singlePg.Amenities}
+           food={singlePg.food_menu}
+           occupancy={singlePg.occupancy}
+        />
       </div>
-      <div className="map">
-        <SimpleMap/>
-      </div>
+     
       <div style={{marginTop:"5rem"}}>
       <Footer/>
 

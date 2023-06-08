@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Cards from "../Card/Cards";
 import SimpleMap from "../../UI/Maps/GoogleMaps";
 import "./Page.css";
@@ -10,21 +10,30 @@ import Filteritem from "../../filter/Filteritem";
 
 
 const Page = () => {
+const [data,setData]=useState([]);
+const[pgData1,setPgData1]=useState("");
+
+useEffect(()=>{
+  window.scrollTo({top:0,left:0,behavior:"smooth"})
+})
+  
   return (
     <>
       <Mainnavbar />
-      <Navbar />
+      
       <Filteritem/>
       <div className="Container1">
         <div className="Container2">
           <div className="card">
-            <Cards />
+            <Cards onData={setData} 
+             pgData1={pgData1}
+            />
           </div>
           <div
             className="Map"
             style={{ position: "sticky", height: "98vh" ,marginBottom:"10px"}}
           >
-            <SimpleMap />
+            <SimpleMap  data1={data} />
           </div>
         </div>
       </div>

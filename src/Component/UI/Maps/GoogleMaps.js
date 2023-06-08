@@ -1,66 +1,92 @@
-import React from "react";
-import GoogleMapReact from "google-map-react";
+import React, { useState } from "react";
+import { GoogleMap, InfoWindow, LoadScript, Marker } from "@react-google-maps/api";
 
-const AnyReactComponent = ({ text }) => (
-    <div style={{
-      color: 'white', 
-      background: 'red',
-      padding: '15px 10px',
-      display: 'inline-flex',
-      textAlign: 'center',
-      alignItems: 'center',
-      justifyContent: 'center',
-      borderRadius: '100%',
-      transform: 'translate(-50%, -50%)'
-    }}>
-      {text}
-    </div>
-  );
-  
-  export default function SimpleMap (){
+const Map = (props) => {
 
-    const data=[
-      {
-        position:{lat:28.5355,lng:77.3910}
-      },
-      {
-        position:{lat:28.6219,lng:77.3910}
-      },
-      {
-        position:{lat:28.619,lng:77.3910}
-      },
-      {
-        position:{lat:28.7,lng:77.3910}
-      }
-    ]
+      
+    const initialMarkers = [
+        {
+            position: {
+                lat: 28.6231,
+                lng: 77.0277
+            },
+            label: { color: "white", text: "p1" },
+            draggable: true
+        },
+        {
+            position: {
+                lat: 28.6196,
+                lng: 77.0550
+            },
+            label: { color: "white", text: "p2" },
+            draggable: false
+        },
+        {
+            position: {
+                lat:28.6219,
+                lng:77.0878
+            },
+            label: { color: "white", text: "P3" },
+            draggable: true
+        },
+    ];
+    
+    const [activeInfoWindow, setActiveInfoWindow] = useState("");
+    const [markers, setMarkers] = useState(initialMarkers);
 
-    const defaultProps = {
-      center: {lat: 28.704060, lng: 77.102493},
-      zoom: 11
-    };
-  
-      return (
-        <div style={{width:"100%",height:"100%" }} >
-         <GoogleMapReact
-          defaultCenter={defaultProps.center}
-          defaultZoom={defaultProps.zoom}
-        >
-          <AnyReactComponent 
-            lat={28.704060} 
-            lng={77.102493} 
-            text={'Kreyser Avrora'} 
-          />
-           <AnyReactComponent 
-            lat={30.704060} 
-            lng={80.102493} 
-            text={'Kreyser Avrora'} 
-          />
-           <AnyReactComponent 
-            lat={35.704060} 
-            lng={75.102493} 
-            text={'Kreyser Avrora'} 
-          />
-        </GoogleMapReact>
-        </div>
-      );
+    const containerStyle = {
+        width: "100%",
+        height: "100%",
     }
+
+    const center = {
+         lat:props.data1[0]?.position.lat,
+                lng:props.data1[0]?.position.lng
+    }
+
+    const mapClicked = (event) => { 
+        console.log(event.latLng.lat(), event.latLng.lng()) 
+    }
+
+    const markerClicked = (marker, index) => {  
+        setActiveInfoWindow(index)
+       
+    }
+
+    const markerDragEnd = (event, index) => { 
+        console.log(event.latLng.lat())
+        console.log(event.latLng.lng())
+    }
+
+    return (
+        <LoadScript googleMapsApiKey='AIzaSyCud_mzxM570mjFEDPAo8mKofa3QnZjy4s'>
+            <GoogleMap 
+                mapContainerStyle={containerStyle} 
+                center={center} 
+                zoom={12}
+                onClick={mapClicked}
+            >
+                {props.data1?.map((marker, index) => (
+                    <Marker 
+                        key={index} 
+                        position={marker.position}
+                        label={marker.label}
+                        draggable={marker.draggable}
+                        onDragEnd={event => markerDragEnd(event, index)}
+                        onClick={event => markerClicked(marker, index)} 
+                    >
+                        {
+                            (activeInfoWindow === index)
+                            &&
+                            <InfoWindow position={marker.position}>
+                                <b>{marker.position.lat}, {marker.position.lng}</b>
+                            </InfoWindow>
+                        }  
+                    </Marker>
+                ))}
+            </GoogleMap>
+        </LoadScript>
+    );
+};
+
+export default Map;

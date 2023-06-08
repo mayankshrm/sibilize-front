@@ -3,7 +3,8 @@ import SimpleMap from "../../UI/Maps/GoogleMaps";
 import FoodMenu from "../FoodMenu/FoodMenu";
 import "./SmoothScroll.css";
 
-function SmoothScroll() {
+function SmoothScroll(props) {
+  console.log(props.food);
   return (
     <>
       <div className="container1">
@@ -11,7 +12,7 @@ function SmoothScroll() {
           to="Occupancy"
           
           smooth={false}
-          offset={-90}
+          offset={-65}
           duration={1}
           style={{ margin: "10px",cursor:"pointer"}}
           
@@ -52,24 +53,42 @@ function SmoothScroll() {
 
       <main >
       <div style={{marginLeft:"3rem"}}>
-        <div id="Occupancy" style={{ height: "100px" }}>
+        <div id="Occupancy" style={{ marginTop:"1rem" ,marginBottom:'2rem'}}>
           <h3>Occupancy</h3>
+          <div>
+          {props.occupancy?.split(';').map((obj,i)=>{
+              return <li key={obj}>
+            
+                {props.occupancy?.split(';')[i]}             
+              </li>
+                
+            })}
+          </div>
         </div>
-      <div id="Amenities" style={{ height: "100px" }}>
-          <h3>Amenities</h3>
+      <div id="Amenities" style={{marginBottom:"2rem"}} >
+          <h3>Amenities</h3> 
+          <div>
+          {props.amenities?.split(',').map((obj,i)=>{
+              return <li key={obj}>
+            
+                {props.amenities?.split(',')[i]}             
+              </li>
+                
+            })}
+          </div>
         </div>
-        <div id="Details" style={{ height: "100px" }}>
+        <div id="Details" >
           <h3>Details</h3>
+          <div>{props.details}</div>
         </div>
       </div>
         <div style={{display:"flex",justifyContent:"center" ,backgroundColor:"#ECECEC "}}>
           <div style={{display:"flex",width:"100%"}}>
             <div className="Food" style={{flex:3}}>
-              <FoodMenu />
+              <FoodMenu
+              food={props.food} />
             </div>
-            <div className="Map" style={{flex:4,height:"100%",zIndex:"0"}}>
-              <SimpleMap />
-            </div>
+            
           </div>
         </div>
         

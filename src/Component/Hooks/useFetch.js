@@ -28,8 +28,6 @@ const reFetch= async()=>{
         console.log(error)
     }
     
-
-
 }
 
 return {data,reFetch};

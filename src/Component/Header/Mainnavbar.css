@@ -55,7 +55,7 @@
     display: block;
   }
 }
-  @media screen and (max-width: 780px){
+  /* @media screen and (max-width: 780px){
     .navbar-nav{
       display: none;
     }
@@ -67,6 +67,7 @@
       top: 75px;
       transition: all 0.5s ease-out;
       width: 100%;
+      height: max-content;
     }
     .nav-link{
       color: #0c0c0c;
@@ -82,4 +83,4 @@
       top: 15px;
     }
 
-  }
+  } */

@@ -15,10 +15,10 @@ function Navbar() {
           <DropDown />
 
         </div>
-        <div className="req">
+        {/* <div className="req">
           <RequestCall />
 
-        </div>
+        </div> */}
         </div>
       </div>
     </>
